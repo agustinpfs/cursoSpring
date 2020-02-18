@@ -1,0 +1,26 @@
+<html>
+<head>
+<style type="text/css">
+	.par{
+		background-color: yellow;
+	}
+	
+	.impar{
+		background-color: silver;
+	}
+</style>
+</head>
+	<body>
+	<h1>Hola Mundo Spring Boot</h1>
+	
+	
+	<table>
+		<tr th:each="usuario : ${usuarios}" th:class="${usuarioStat.odd}? 'impar': 'par' ">
+			<td th:text="${usuario.id}"></td>
+			<td th:text="${usuario.nombreUsuario}"></td>
+			<td th:text="${usuario.nombreCompleto}"></td>
+		</tr>
+	</table>
+	<h1>Cantidad: [[${tamano}]]</h1>
+	</body>
+</html>
