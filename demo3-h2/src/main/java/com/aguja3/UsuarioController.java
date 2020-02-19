@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.aguja3.Entity.Usuario;
 import com.aguja3.repository.UsuarioRepositorio;
@@ -26,5 +27,15 @@ public class UsuarioController {
 		
 		return "index";
 	}
-
+	
+	@PostMapping("/crearUsuario")
+	public String crearUsuario(Model modelo, Usuario usuario) {
+		repositorio.save(usuario);
+		modelo.addAttribute("usuario", new Usuario()); //limpio campos
+		modelo.addAttribute("usuarios", repositorio.findAll());
+		
+		return "index";
+		
+	}
+	
 }
