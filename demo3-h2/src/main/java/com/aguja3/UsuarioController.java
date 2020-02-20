@@ -20,13 +20,14 @@ public class UsuarioController {
 	//instancia de UsuarioRepositorio.java:
 	
 	@Autowired //inyección de dependencias para no hacer un new
-	UsuarioRepositorio repositorio;
+	UsuarioRepositorio repositorio;//instancia
 	
 	
 	@GetMapping
+	//le digo al modelo que agregue un atributo que se llame usuario
 	public String index(Model modelo, Usuario usuario) {//crud CU
 		modelo.addAttribute("usuario", new Usuario());
-		modelo.addAttribute("usuarios", repositorio.findAll()); //instancia
+		modelo.addAttribute("usuarios", repositorio.findAll()); 
 		
 		return "index";
 	}
