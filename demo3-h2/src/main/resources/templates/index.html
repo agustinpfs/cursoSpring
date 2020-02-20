@@ -12,9 +12,12 @@
 </head>
 	<body>
 	<form th:action="@{/crearUsuario}" th:object= "${usuario}" method="POST" >
+		<span th:if="${usuario.id != null}">
+			<input type="text" th:field="${usuario.id}" readonly/>
+		</span>
 		<input type="text" placeholder="Usuario" th:field="${usuario.nombreUsuario}">
 		<input type="text" placeholder="Nombre" th:field="${usuario.nombreCompleto}">
-		<input type="submit" th:value="'Crear Usuario'">
+		<input type="submit" th:value="${usuario.id != null} ? 'Guardar Usuario':'Crear Usuario'"/>
 	</form>
 <!-- 	//usuario viene del controlador -->
 	
@@ -23,17 +26,18 @@
 			<tr>
 				<th>ID</th>
 				<th>Usuario</th>
-				<th>Nombre</th>			
+				<th>Nombre</th>		
+				<th>Editar</th>	
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="usuario : ${usuarios}" th:class="${usuarioStat.odd}? 'impar': 'par' ">
 				<td th:text="${usuario.id}"></td>
 				<td th:text="${usuario.nombreUsuario}"></td>
-				<td th:text="${usuario.nombreCompleto}"></td>		
+				<td th:text="${usuario.nombreCompleto}"></td>
+				<td><a th:href="@{'/editarUsuario/' + ${usuario.id}}">Editar</a></td>	
 			</tr>		
 		</tbody>
 	</table>
-	<h1>Cantidad: [[${tamano}]]</h1>
 	</body>
 </html>

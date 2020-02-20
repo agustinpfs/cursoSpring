@@ -2,10 +2,13 @@
 
 package com.aguja3;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.aguja3.Entity.Usuario;
@@ -36,6 +39,20 @@ public class UsuarioController {
 		
 		return "index";
 		
+	}
+	
+	@GetMapping("/editarUsuario/{id}")
+		public String editarUsuarioForm(Model modelo, @PathVariable(name="id") long id) {
+		
+ 		Usuario usuarioParaEditar = repositorio.findById(id).get(); 
+		modelo.addAttribute("usuario", usuarioParaEditar);
+		modelo.addAttribute("usuarios", repositorio.findAll());
+
+		/*
+		 * Optional<Usuario> usuarioParaEditar = repositorio.findById(id);
+		 * if(usuarioParaEditar.isPresent())
+		 */
+			return "index";
 	}
 	
 }
