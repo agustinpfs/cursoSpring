@@ -27,7 +27,9 @@
 				<th>ID</th>
 				<th>Usuario</th>
 				<th>Nombre</th>		
-				<th>Editar</th>	
+<!-- 				<th>Editar</th> -->
+<!-- 				<th>Eliminar</th> -->
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,7 +37,8 @@
 				<td th:text="${usuario.id}"></td>
 				<td th:text="${usuario.nombreUsuario}"></td>
 				<td th:text="${usuario.nombreCompleto}"></td>
-				<td><a th:href="@{'/editarUsuario/' + ${usuario.id}}">Editar</a></td>	
+				<td><a th:href="@{'/editarUsuario/' + ${usuario.id}}">Editar</a>
+				 <a th:href="@{'/eliminarUsuario/' + ${usuario.id}}">Eliminar</a></td>	
 			</tr>		
 		</tbody>
 	</table>

@@ -2,7 +2,7 @@
 
 package com.aguja3;
 
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,6 +53,17 @@ public class UsuarioController {
 		 * if(usuarioParaEditar.isPresent())
 		 */
 			return "index";
+	}
+	
+	@GetMapping("/eliminarUsuario/{id}")
+	public String eliminarUsuario(Model modelo, @PathVariable(name="id") long id) {
+		
+		Usuario usuarioParaEliminar = repositorio.findById(id).get();
+		repositorio.delete(usuarioParaEliminar);
+		modelo.addAttribute("usuario", new Usuario());
+		modelo.addAttribute("usuarios", repositorio.findAll());//lista todos los usuarios
+		
+		return "index";
 	}
 	
 }
