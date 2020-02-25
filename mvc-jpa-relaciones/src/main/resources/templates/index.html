@@ -1,0 +1,83 @@
+<html>
+<head>
+
+<style type="text/css">
+	body, html{
+		width:250px;
+	}
+
+	input:not([type="checkbox"]):not([type="radio"]),select{
+		width:160px;
+	}
+	input:not([type="radio"]), select{
+		margin-bottom:15px;
+	}
+	
+	.button{
+		width:200px !important;
+	}
+	
+</style>
+</head>
+<body>
+	<span>Informacion</span>
+	<form th:action="@{/crearUsuario}" th:object="${usuario}" method="POST" id="userForm">
+		<div style="border: 1px solid black; padding:20px;">
+		<span th:if="${usuario.id !=null}"><input type="text" th:field="${usuario.id}" readonly><br/></span>
+		
+		<label th:text="Usuario"></label><br/>
+		<input type="text" placeholder="Usuario" th:field="${usuario.nombreUsuario}"/><br/>
+		
+		<label th:text="Nombre"></label><br/>
+		<input type="text" placeholder="Nombre" th:field="${usuario.nombreCompleto}"/><br/>
+		
+		<label th:text="Rol"></label><br/>
+		<select th:field="${usuario.roles}" multiple="multiple">
+			<option th:each="rol :${roles}" th:value="${rol.id}" th:text="${rol.descripcion}">
+			</option>
+		</select><br/>
+		
+		<label th:text="'Fecha de nacimiento'"></label><br/>
+		<input type="date" th:field="${usuario.fechaNacimiento}" />
+		</div><br/>
+		
+		
+		
+				
+		<input type="Submit" th:value="${usuario.id != null }?'Guardar Usuario':'Crear Usuario'" th:class="button"/>
+		<th:block th:if="${usuario.id !=null}">
+			<a th:href="@{/index}">Cancel</a>	
+		</th:block>
+	</form>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Usuario</th>
+				<th>Nombre</th>
+				<th>Roles</th>
+				<th>Actiones</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario : ${usuarios}">
+				<td th:text="${usuario.id}"></td>
+				<td th:text="${usuario.nombreUsuario}"></td>
+				<td th:text="${usuario.nombreCompleto}"></td>
+				<td>
+					<th:block th:each="rol,iter: ${usuario.roles}">
+    					<label th:text="${rol.descripcion}"></label>
+   						<th:block th:if="${!iter.last}">, </th:block>
+  					</th:block>
+				</td>
+				<td><a th:href="@{'/editarUsuario/'+ ${usuario.id}}"> Editar </a> | <a th:href="@{'/eliminarUsuario/' + ${usuario.id}}">Eliminar</a></td>
+			</tr>
+		
+		</tbody>
+	
+	
+	</table>
+</body>
+</html>

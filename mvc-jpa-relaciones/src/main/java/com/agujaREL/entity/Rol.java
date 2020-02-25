@@ -16,6 +16,9 @@ public class Rol {
 	
 	public Rol() {}	
 	
+	public Rol(String descripcion) {
+		this.descripcion = descripcion;
+	}	
 	
 	public Rol(Long id, String descripcion) {
 		super();
