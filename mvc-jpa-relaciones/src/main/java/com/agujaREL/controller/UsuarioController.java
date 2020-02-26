@@ -22,9 +22,9 @@ public class UsuarioController {
 	RolRepository rolRepository;
 	
 	@GetMapping
-	public String index(Model modelo) {
+	public String index(Model modelo) { //recibe un modelo(pojo-entity)
 		modelo.addAttribute("usuario",new Usuario());
-		modelo.addAttribute("usuarios",usuarioRepository.findAll());
+		modelo.addAttribute("usuarios",usuarioRepository.findAll()); //envía al index
 		modelo.addAttribute("roles",rolRepository.findAll()); //la var roles la ejecuta en option html
 		return "index";
 	}

@@ -1,4 +1,4 @@
-//pojo - entity
+//pojo - entity - modelo 
 package com.agujaREL.entity;
 
 import java.util.Set;
