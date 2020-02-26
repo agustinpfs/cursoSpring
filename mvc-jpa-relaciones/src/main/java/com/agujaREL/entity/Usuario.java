@@ -46,7 +46,9 @@ public class Usuario {
 	private Configuracion configuracion;
 	
 	
-	public Usuario() {}
+	public Usuario() {
+		configuracion = new Configuracion();
+	}
 
 
 	public Usuario(Long id, String nombreUsuario, String nombreCompleto, String fechaNacimiento, Set<Rol> roles,

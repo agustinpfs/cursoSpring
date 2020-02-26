@@ -1,4 +1,4 @@
-package com.agujaREL.controller;
+ package com.agujaREL.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UsuarioController {
 		return "index";
 	}
 	
-	@PostMapping
+	@PostMapping("/crearUsuario")
 	public String crearUsuario(Model modelo, Usuario usuario) {
 		usuarioRepository.save(usuario);
 		

@@ -1,3 +1,7 @@
+//usamos propiedad bootstrap de springboot.
+//cuando springboot se termina de levantar y se crea el contexto del server, 
+//se llama a un evento, evento el cual podemos ejecutar o hacer algo que qeramos,
+//crearemos 3 roles
 package com.agujaREL;
 
 
@@ -20,6 +24,15 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 		repo.save(new Rol("Administrador"));
 		repo.save(new Rol("Contable"));
 		repo.save(new Rol("Regular"));
+		
+//		OR:
+		
+//		List<Rol> roles = new arrayList<Rol>();
+//		roles.add(new Rol("Administrador"));
+//		roles.add(new Rol("Contable"));
+//		roles.add(new Rol("Regular"));
+//		roleRepositorio.saveAll(roles)
+		
 	}
 
 }
