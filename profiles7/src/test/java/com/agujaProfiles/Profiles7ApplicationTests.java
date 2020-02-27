@@ -1,10 +1,10 @@
-package com.agujaREL;
+package com.agujaProfiles;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MvcJpaRelacionesApplicationTests {
+class Profiles7ApplicationTests {
 
 	@Test
 	void contextLoads() {

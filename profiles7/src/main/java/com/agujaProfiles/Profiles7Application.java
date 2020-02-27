@@ -1,13 +1,13 @@
-package com.agujaREL;
+package com.agujaProfiles;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MvcJpaRelacionesApplication {
+public class Profiles7Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MvcJpaRelacionesApplication.class, args);
+		SpringApplication.run(Profiles7Application.class, args);
 	}
 
 }
