@@ -1,6 +1,6 @@
 package com.agujaInject.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +28,7 @@ public class DemoController {
 	
 //	@Autowired //no obligatorio
 //	public DemoController(@Qualifier("sistemaOperativoServiceImplWin")SistemaOperativoService sistemaOperativoService) {
-//		this.sistemaOperativoService = sistemaOperativoService;
+//		this.sistemaOperativoService = sistemaOperativoService; //""sistemaOperativoServiceImplWin"" el bin que queremos que se instancie
 //	}
 //	or: (reemplaza a @primary)
 	
